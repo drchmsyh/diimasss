@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Navbar -->
 <!-- Navbar akan dimuat dari file terpisah -->
-<div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder"></div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -27,17 +26,6 @@
   <footer>
     <p>©2024 - ディマス</p>
   </footer>
-
-  <script src=// Fungsi untuk muat file HTML eksternal ke dalam placeholder
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-        setupDarkMode(); // jalankan fungsi toggle mode setelah navbar masuk
-        highlightActiveLink(); // opsional: buat link aktif di navbar
-      });
-  });
-  ></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
