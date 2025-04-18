@@ -9,7 +9,6 @@
 <body>
   <!-- Navbar akan dimuat dari file terpisah -->
   <div id="navbar-placeholder"></div>
-
   <!-- Konten About -->
   <section id="about" style="padding: 2rem; max-width: 800px; margin: auto; font-family: sans-serif; text-align: justify;">
     <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; text-align: left;">About</h2>
@@ -90,28 +89,7 @@
       </div>
     </section>
   </section>
-
-  <!-- Script: Navbar dan Animasi -->
-  <script>
-    // Navbar loader
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-      });
-
-    // Burger menu (pastikan elemen ada di navbar.html)
-    window.addEventListener('DOMContentLoaded', () => {
-      const burger = document.getElementById('burger');
-      const nav = document.getElementById('nav-links');
-
-      if (burger && nav) {
-        burger.addEventListener('click', () => {
-          nav.classList.toggle('nav-active');
-        });
-      }
-    });
+  </script>
 <script src="js/script.js"></script>
-
 </body>
 </html>
