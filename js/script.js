@@ -30,3 +30,14 @@ window.onload = () => {
     toggleBtn.textContent = document.body.classList.contains("dark") ? "🌙" : "🌞";
   });
 };
+// Sisipkan navbar.html ke halaman
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+
+      // Panggil ulang event seperti dark mode (karena button-nya dimuat belakangan)
+      setupDarkMode();
+    });
+});
