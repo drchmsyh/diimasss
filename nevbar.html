@@ -1,0 +1,103 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Navbar - Akhmad Dimas S</title>
+          <style>
+            body {
+              margin: 0;
+              font-family: Arial, sans-serif;
+            }
+        
+            .navbar {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 20px;
+              background-color: #333;
+              color: white;
+            }
+        
+            .logo {
+              font-size: 1.5em;
+              font-weight: bold;
+            }
+        
+            .nav-links {
+              display: flex;
+              gap: 20px;
+            }
+        
+            .nav-links a {
+              color: white;
+              text-decoration: none;
+              transition: color 0.3s ease;
+            }
+        
+            .nav-links a:hover {
+              color: #00bcd4;
+            }
+        
+            .menu-toggle {
+              display: none;
+              font-size: 28px;
+              cursor: pointer;
+            }
+        
+            /* Mobile-first: Default for mobile view */
+            @media (max-width: 768px) {
+              .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 150px;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+              }
+        
+              .nav-links.active {
+                display: flex;
+              }
+        
+              .menu-toggle {
+                display: block;
+              }
+            }
+        
+            /* Larger screens: Hide the toggle menu */
+            @media (min-width: 769px) {
+              .nav-links {
+                display: flex;
+                flex-direction: row;
+              }
+        
+              .menu-toggle {
+                display: none;
+              }
+            }
+          </style>
+        </head>
+        <body>
+        
+            <body>
+                <!-- Navbar -->
+                <nav class="navbar">
+                  <div class="logo">dimas();</div>
+                  <ul class="nav-links">
+                    <li><a href="index.html" class="active">home</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="projects.html">porto</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                  </ul>
+                  <button class="toggle-mode" id="toggleMode">🌞</button>
+                </nav>
+          <!-- ===== JavaScript ===== -->
+          <script src="js/script.js"></script>
+        </body>
+        </html>
