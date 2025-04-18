@@ -28,6 +28,16 @@
     <p>©2024 - ディマス</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src=// Fungsi untuk muat file HTML eksternal ke dalam placeholder
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+        setupDarkMode(); // jalankan fungsi toggle mode setelah navbar masuk
+        highlightActiveLink(); // opsional: buat link aktif di navbar
+      });
+  });
+  ></script>
 </body>
 </html>
