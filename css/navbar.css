@@ -27,7 +27,7 @@ body {
 }
 
 .navbar-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -162,4 +162,11 @@ body.dark-mode .navbar-menu a:hover {
 body.dark-mode .navbar-logo,
 body.dark-mode #dark-mode-toggle {
   color: #f0f0f0;
+}
+
+/* Layout Container Tengah */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
