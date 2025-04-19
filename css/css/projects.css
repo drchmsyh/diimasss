@@ -1,0 +1,159 @@
+/* =====================
+   RESET DAN DASAR
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #111;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #111;
+  color: #eee;
+}
+
+/* =====================
+   SECTION PROJECT
+===================== */
+.project-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: inherit;
+}
+
+/* =====================
+   GRID LAYOUT
+===================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+@media (min-width: 600px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =====================
+   CARD TAMPILAN
+===================== */
+.project-card {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff, #f1f1f1);
+  border: 1.5px solid #ddd;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+  max-width: 60px;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.project-card h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  z-index: 2;
+  white-space: normal;
+}
+
+.project-card span {
+  font-size: 0.9rem;
+  color: #555;
+  z-index: 2;
+}
+
+/* Animasi teks berjalan */
+.project-card.active h2 {
+  animation: slideText 4s linear 1;
+}
+
+@keyframes slideText {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Efek glowing terus-menerus */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), transparent 70%);
+  transform: rotate(45deg);
+  animation: glowLoop 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes glowLoop {
+  0% {
+    transform: rotate(45deg) translate(0%, 0%);
+  }
+  50% {
+    transform: rotate(45deg) translate(-30%, -30%);
+  }
+  100% {
+    transform: rotate(45deg) translate(0%, 0%);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .project-card span {
+    font-size: 0.85rem;
+  }
+}
