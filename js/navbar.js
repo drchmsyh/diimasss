@@ -17,12 +17,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     const hamburger = document.getElementById("hamburger");
     const navLinks = document.getElementById("navLinks");
     const mainContent = document.querySelector("main");
+    const body = document.body;
 
     if (hamburger && navLinks) {
       const toggleMenu = () => {
         navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active"); // Animasi silang
+        body.classList.toggle("menu-open");
 
-        // Scroll ke bawah agar menu terlihat di bawah navbar
         if (navLinks.classList.contains("active") && mainContent) {
           mainContent.scrollIntoView({ behavior: "smooth", block: "start" });
         }
