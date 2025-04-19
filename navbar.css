@@ -1,0 +1,59 @@
+/* =====================
+     NAVBAR
+  ===================== */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;   /* center semua item */
+    gap: 190px;                /* spasi antar logo, menu, tombol */
+    padding: 24px 60px;
+  }
+  
+  .logo {
+    font-weight: 600;
+    font-size: 18px;
+    color: #555;
+    font-family: monospace;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    position: relative;
+    text-transform: lowercase;
+    transition: 0.2s;
+  }
+  
+  .nav-links a:hover {
+    color: #000;
+  }
+  
+  .nav-links a.active {
+    font-weight: bold;
+    color: #111;
+  }
+  
+  .nav-links a.active::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #6c63ff;
+    margin-top: 3px;
+  }
+  
+  .toggle-mode {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 20px; /* Untuk menggeser tombol ke kiri */
+  }
+  
