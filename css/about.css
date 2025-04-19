@@ -1,10 +1,22 @@
 /* =====================
    RESET DAN DASAR
 ===================== */
-* {
+** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #111;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  body.dark {
+    background-color: #111;
+    color: #eee;
   }
   
   /* =====================
