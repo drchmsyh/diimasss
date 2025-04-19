@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Muat navbar eksternal
-    fetch("navbar/navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-        setupDarkMode(); // jalankan fungsi toggle mode setelah navbar dimuat
-        highlightActiveLink(); // opsional: buat link aktif di navbar
-      });
-  
     // Fungsi dark mode
     function setupDarkMode() {
       const toggle = document.getElementById("toggleMode");
