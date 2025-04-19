@@ -1,0 +1,117 @@
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: transparent;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo a {
+  font-weight: 700;
+  font-size: 20px;
+  color: #555;
+  font-family: monospace;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.logo a:hover {
+  color: #000;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  position: relative;
+  text-transform: lowercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+  color: #111;
+}
+
+.nav-links a.active::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #6c63ff;
+  margin-top: 3px;
+}
+
+/* Toggle Mode Button */
+.toggle-mode {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.toggle-mode:hover {
+  transform: scale(1.1);
+}
+
+/* =====================
+   DARK MODE
+===================== */
+body.dark .navbar {
+  background-color: #111;
+}
+
+body.dark .nav-links a {
+  color: #ccc;
+}
+
+body.dark .nav-links a:hover,
+body.dark .nav-links a.active {
+  color: #fff;
+}
+
+body.dark .logo a {
+  color: #eee;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .toggle-mode {
+    align-self: flex-end;
+  }
+}
