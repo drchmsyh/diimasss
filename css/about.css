@@ -1,7 +1,7 @@
 /* =====================
    RESET DAN DASAR
 ===================== */
-** {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -149,7 +149,6 @@
   
   .skills-track {
     display: inline-flex;
-    animation: scroll-left 25s linear infinite;
     gap: 1rem;
     list-style: none;
     padding-left: 0;

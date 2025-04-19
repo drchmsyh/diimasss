@@ -1,9 +1,11 @@
+/* Reset dan Box Sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body - Tema Default */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
@@ -11,13 +13,9 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark {
-  background-color: #111;
-  color: #eee;
-}
-
-
-/* Hero Section */
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
   display: flex;
   align-items: center;
@@ -65,7 +63,9 @@ body.dark {
   box-shadow: 0 0 8px rgba(0,0,0,0.15);
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   padding: 16px 0;
@@ -73,14 +73,9 @@ footer {
   color: #999;
 }
 
-body.dark .nav-links a.active::after {
-  background-color: #ffd54f;
-}
-
-body.dark footer {
-  color: #777;
-}
-/* Dark mode toggle */
+/* =========================
+   DARK MODE
+========================= */
 body.dark {
   background-color: #111;
   color: #eee;
@@ -106,8 +101,8 @@ body.dark .nav-links a.active {
   color: #fff;
 }
 
-body.dark .hero-text h1, 
-body.dark .hero-text h2, 
+body.dark .hero-text h1,
+body.dark .hero-text h2,
 body.dark .hero-text p {
   color: #ddd;
 }
@@ -120,12 +115,13 @@ body.dark footer {
   color: #bbb;
 }
 
-/* Mode button style */
 body.dark .toggle-mode {
-  color: #ffd54f; /* Sunscreen color for button */
+  color: #ffd54f;
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
