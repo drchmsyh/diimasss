@@ -1,18 +1,34 @@
-<nav class="navbar">
-  <div class="navbar-container">
-    <a href="/index.html" class="navbar-logo">diimasss();</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar</title>
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <!-- Logo -->
+      <a href="/index.html" class="navbar-logo" id="navbarLogo">diimasss();</a>
 
-   <div class="navbar-toggle" id="hamburger">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</div>
+      <!-- Dark mode toggle -->
+      <button class="toggle-mode" id="toggleMode" aria-label="Toggle Dark Mode">🌓</button>
 
-    <ul class="navbar-menu" id="navLinks">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/projects.html">Porto</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+      <!-- Hamburger -->
+      <div class="navbar-toggle" id="hamburger" aria-label="Menu Toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- Menu list -->
+      <ul class="navbar-menu" id="navLinks">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html">Porto</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+  <script src="js/navbar.js"></script>
+</body>
+</html>
