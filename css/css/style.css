@@ -2,16 +2,21 @@
    RESET & VARIABEL
 ========================= */
 :root {
-  --color-bg: #111;
-  --color-text: #ffffff;
-  --color-muted: #555;
+  /* Light mode (default) */
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-muted: #555555;
   --color-accent: #6c63ff;
-  --color-footer: #999;
+  --color-footer: #999999;
+}
 
-  --color-dark-bg: #ffffff;
-  --color-dark-text: #111;
-  --color-dark-muted: #ddd;
-  --color-dark-accent: #ffd54f;
+body.dark {
+  /* Dark mode overrides */
+  --color-bg: #111111;
+  --color-text: #eeeeee;
+  --color-muted: #dddddd;
+  --color-accent: #ffd54f;
+  --color-footer: #cccccc;
 }
 
 * {
@@ -26,84 +31,6 @@ body {
   color: var(--color-text);
   transition: background-color 0.3s, color 0.3s;
   line-height: 1.6;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-.navbar {
-  background-color: #fff;
-  color: #111;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.navbar-container {
-  max-width: 1000px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #111;
-}
-
-.navbar-menu {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar-menu li a {
-  color: #111;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.navbar-menu li a:hover,
-.navbar-menu li a.active {
-  color: var(--color-accent);
-}
-
-.navbar-menu li a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--color-accent);
-  transition: width 0.3s ease;
-}
-
-.navbar-menu li a:hover::after,
-.navbar-menu li a.active::after {
-  width: 100%;
-}
-
-/* Hamburger */
-.navbar-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.bar {
-  height: 2px;
-  width: 25px;
-  background-color: #111;
-  margin: 4px 0;
 }
 
 /* =========================
@@ -131,7 +58,7 @@ body {
 .hero-text h1 {
   font-size: 2.7rem;
   font-weight: 800;
-  color: #111;
+  color: var(--color-text);
   margin-bottom: 5px;
 }
 
@@ -168,58 +95,6 @@ footer {
   font-size: 0.85rem;
   color: var(--color-footer);
 }
-
-/* =========================
-   TOGGLE MODE BUTTON
-========================= */
-.toggle-mode {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--color-accent);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s, transform 0.2s;
-  z-index: 999;
-}
-
-.toggle-mode:hover {
-  background-color: #574de9;
-  transform: scale(1.05);
-}
-
-/* =========================
-   DARK MODE
-========================= */
-body.dark {
-  background-color: var(--color-dark-bg);
-  color: var(--color-dark-text);
-}
-
-body.dark .hero-text h1,
-body.dark .hero-text h2,
-body.dark .hero-text p {
-  color: var(--color-dark-muted);
-}
-
-body.dark .hero-img img {
-  filter: brightness(0.85);
-}
-
-body.dark footer {
-  color: #bbb;
-}
-
-body.dark .toggle-mode {
-  color: var(--color-dark-accent);
-}
-
 /* =========================
    RESPONSIVE (MOBILE)
 ========================= */
@@ -243,11 +118,13 @@ body.dark .toggle-mode {
     width: 180px;
   }
 
+  /* Navbar container atur ulang */
   .navbar-container {
     flex-direction: row;
     justify-content: space-between;
   }
 
+  /* Menu hide/show */
   .navbar-menu {
     display: none;
     flex-direction: column;
@@ -255,7 +132,7 @@ body.dark .toggle-mode {
     top: 70px;
     right: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--color-bg);
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
@@ -264,15 +141,25 @@ body.dark .toggle-mode {
     display: flex;
   }
 
-  .navbar-toggle {
-    display: flex;
-  }
-
   .navbar-menu li {
     padding: 0.5rem 0;
   }
 
+  /* Toggle button */
+  .navbar-toggle {
+    display: flex;
+  }
+
+  /* Footer adjust */
   footer {
     font-size: 0.75rem;
   }
+}
+
+/* =========================
+   KHUSUS MAIN & KONTEN
+========================= */
+/* Pastikan konten utama juga tetap putih di light mode */
+main, .hero, .skills-section, .content {
+  background-color: var(--color-bg);
 }
