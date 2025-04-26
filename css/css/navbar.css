@@ -127,7 +127,7 @@ body.dark #hamburger .bar {
 }
 
 /* === MOBILE (Under 700px) === */
-@media (max-width: 700px) {
+@media (max-width: 500px) {
   .navbar-container {
     flex-direction: column;
     align-items: flex-start;
