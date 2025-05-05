@@ -4,14 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects - Akhmad Dimas S</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/css/navbar.css" />
-  <link rel="stylesheet" href="css/css/projects.css" />
-  <link rel="stylesheet" href="css/css/mobile.css" />
-
-
-  <!-- Slide animation -->
+  <link rel="stylesheet" href="css/projects.css" />
   <style>
     .slide {
       animation: slideText 3s linear forwards;
@@ -33,54 +26,54 @@
   </style>
 </head>
 <body>
-
-  <!-- Navbar dimuat dari file eksternal -->
+<!-- Navbar akan dimuat dari file terpisah -->
   <div id="navbar-placeholder"></div>
-
-  <!-- Konten Proyek -->
   <main class="project-section">
     <h1 class="section-title">Kategori Proyek</h1>
     <div class="project-grid">
-      <a href="css/projects/flyer/index.html" class="project-card">
-        <img src="js/images/flyer/flyer1.png" alt="Flyer">
+      <a href="projects/flyer/index.html" class="project-card">
+        <img src="images/flyer/flyer1.png" alt="Flyer">
         <h2>Flyer</h2>
       </a>
-      <a href="css/projects/logo/index.html" class="project-card">
+      <a href="projects/logo/index.html" class="project-card">
         <img src="images/logo/logo1.png" alt="Logo">
         <h2>Logo</h2>
       </a>
-      <a href="css/projects/tshirt/index.html" class="project-card">
+      <a href="projects/tshirt/index.html" class="project-card">
         <img src="images/tshirt/tshirt1.jpg" alt="T-Shirt">
         <h2>T-Shirt</h2>
       </a>
-      <a href="css/projects/banner/index.html" class="project-card">
+      <a href="projects/banner/index.html" class="project-card">
         <img src="images/banner/Banner1.png" alt="Banner">
         <h2>Banner</h2>
       </a>
-      <a href="css/projects/idcard/index.html" class="project-card">
+      <a href="projects/idcard/index.html" class="project-card">
         <img src="images/idcard/idcard1.png" alt="ID Card">
         <h2>ID Card</h2>
       </a>
-      <a href="css/projects/photography/index.html" class="project-card">
+      <a href="projects/photography/index.html" class="project-card">
         <img src="images/photography/photo1.png" alt="Photography">
         <h2>Photography</h2>
       </a>
     </div>
   </main>
 
-  <!-- Script efek animasi klik -->
   <script>
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav-links');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+    });
+
+    // Animasi teks slide saat klik
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', e => {
         const text = card.querySelector('h2');
         text.classList.remove('slide');
-        void text.offsetWidth; // restart animasi
+        void text.offsetWidth; // trigger ulang animasi
         text.classList.add('slide');
       });
     });
-  </script>
-
-  <!-- Script navbar terpisah -->
-  <script src="js/navbar.js"></script>
+   src="js/navbar.js"</script>
 </body>
 </html>
