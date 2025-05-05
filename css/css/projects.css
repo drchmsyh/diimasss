@@ -1,6 +1,3 @@
-/* =====================
-   RESET DAN DASAR
-===================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,101 +5,146 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: sans-serif;
   background-color: #f9f9f9;
-  color: #111;
-  transition: background-color 0.3s, color 0.3s;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
 }
 
-body.dark {
-  background-color: #111;
-  color: #eee;
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-/* =====================
-   SECTION PROJECT
-===================== */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #007BFF;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  transition: all 0.3s ease;
+}
+
+
+/* Burger untuk mobile */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    gap: 1rem;
+    width: 200px;
+    padding: 1rem;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+/* === Section Project === */
 .project-section {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  text-align: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .section-title {
   font-size: 2rem;
+  text-align: center;
   margin-bottom: 2rem;
-  color: inherit;
+  color: #222;
 }
 
-/* =====================
-   GRID LAYOUT
-===================== */
+/* Grid layout */
 .project-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
-@media (min-width: 600px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* =====================
-   CARD TAMPILAN
-===================== */
+/* Card tampilan */
 .project-card {
-  width: 100%;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #fff, #f1f1f1);
-  border: 1.5px solid #ddd;
-  color: black;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  color: black;
+  border-radius: 12px;
+  border: 2px solid #ddd;
   position: relative;
   overflow: hidden;
-  display: flex;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-direction: column;
-  align-items: center;
+  cursor: pointer;
 }
 
-.project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-}
-
-.project-card img {
-  max-width: 60px;
-  margin-bottom: 0.8rem;
-  border-radius: 8px;
-  z-index: 2;
-}
-
+/* Teks dalam kartu */
 .project-card h2 {
   font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
   z-index: 2;
-  white-space: normal;
+  position: relative;
+  color: black;
+  white-space: nowrap;
 }
 
-.project-card span {
-  font-size: 0.9rem;
-  color: #555;
-  z-index: 2;
-}
-
-/* Animasi teks berjalan */
+/* Saat class active ditambahkan, animasi jalan 1 kali */
 .project-card.active h2 {
   animation: slideText 4s linear 1;
 }
 
+/* Animasi teks jalan dari kiri ke kanan */
 @keyframes slideText {
   0% {
     transform: translateX(-100%);
@@ -117,7 +159,13 @@ body.dark {
   }
 }
 
-/* Efek glowing terus-menerus */
+/* Hover tetap ada shadow */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Efek glowing berjalan terus-menerus */
 .project-card::before {
   content: '';
   position: absolute;
@@ -126,11 +174,12 @@ body.dark {
   width: 200%;
   height: 200%;
   background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), transparent 70%);
+  z-index: 1;
   transform: rotate(45deg);
   animation: glowLoop 4s linear infinite;
-  z-index: 1;
 }
 
+/* Animasi background glow terus-menerus */
 @keyframes glowLoop {
   0% {
     transform: rotate(45deg) translate(0%, 0%);
@@ -143,17 +192,14 @@ body.dark {
   }
 }
 
-/* RESPONSIVE */
+/* Responsive teks */
 @media (max-width: 480px) {
-  .project-card {
-    padding: 1rem;
-  }
-
   .project-card h2 {
     font-size: 1.1rem;
   }
+}
 
-  .project-card span {
-    font-size: 0.85rem;
-  }
+/* Hilangkan gambar jika ada */
+.project-card img {
+  display: none;
 }
