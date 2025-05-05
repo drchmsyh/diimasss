@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semua Desain Flyer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f8f8f8;
+      color: #000;
+      padding: 2rem;
+    }
+
+    a.back-button {
+      display: inline-block;
+      margin-bottom: 2rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #ccc;
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    h2 {
+      text-align: left;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-card {
+      width: 100%;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .project-text {
+      margin-top: 0.6rem;
+      padding-left: 0.2rem;
+    }
+
+    .project-text h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .project-text p {
+      margin: 0.3rem 0 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Modal Style */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2.5rem;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <a href="../../projects.html" class="back-button">← Kembali</a>
+
+  <h2>Semua Desain Flyer</h2>
+
+  <div class="project-gallery">
+    <div class="project-item">
+      <div class="project-card" onclick="showModal(this)">
+        <img src="../../images/flyer/flyer1.png" alt="Flyer 1" />
+      </div>
+      <div class="project-text">
+        <h3>Event HUT SMA N2 REMBANG</h3>
+        <p>Flyer promosi acara ulang tahun sekolah dengan nuansa semarak.</p>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-card" onclick="showModal(this)">
+        <img src="../../images/flyer/flyer2.png" alt="Flyer 2" />
+      </div>
+      <div class="project-text">
+        <h3>Event Natuna</h3>
+        <p>Flyer wisata bahari Natuna, memperkuat citra keindahan laut Indonesia.</p>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-card" onclick="showModal(this)">
+        <img src="../../images/flyer/flyer3.png" alt="Flyer 3" />
+      </div>
+      <div class="project-text">
+        <h3>Event Kemerdekaan RI</h3>
+        <p>Flyer perayaan kemerdekaan dengan elemen budaya dan nasionalisme.</p>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-card" onclick="showModal(this)">
+        <img src="../../images/flyer/flyer4.jpg" alt="Flyer 4" />
+      </div>
+      <div class="project-text">
+        <h3>Pray For Gunung Semeru</h3>
+        <p>Desain solidaritas bencana alam sebagai bentuk empati dan dukungan.</p>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-card" onclick="showModal(this)">
+        <img src="../../images/flyer/flyer5.png" alt="Flyer 5" />
+      </div>
+      <div class="project-text">
+        <h3>Kelahiran Pancasila</h3>
+        <p>Flyer memperingati hari lahir Pancasila dengan simbol dan filosofi bangsa.</p>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-card" onclick="showModal(this)">
+        <img src="../../images/flyer/flyer6.jpg" alt="Flyer 6" />
+      </div>
+      <div class="project-text">
+        <h3>Iklan Vendor Monster Graphic</h3>
+        <p>Promosi vendor desain grafis dengan pendekatan visual kreatif.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="hideModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img" />
+  </div>
+
+  <script>
+    function showModal(el) {
+      const img = el.querySelector("img");
+      document.getElementById("modal-img").src = img.src;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function hideModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
