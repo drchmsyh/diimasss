@@ -29,3 +29,8 @@ function initNavbarBehavior() {
     }
   });
 }
+
+document.getElementById('hamburger').addEventListener('click', function () {
+  const nav = document.getElementById('navLinks');
+  nav.classList.toggle('active');
+});
