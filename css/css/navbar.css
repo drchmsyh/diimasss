@@ -1,69 +1,69 @@
-/* Reset dasar */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling */
 body {
   font-family: Arial, sans-serif;
 }
 
-/* Navbar container */
-nav {
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1000px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Logo */
-nav .logo {
+.navbar-logo {
+  font-size: 20px;
   font-weight: bold;
-  font-size: 18px;
+  text-decoration: none;
+  color: #000;
 }
 
-/* Menu items */
-nav ul {
+.navbar-menu {
   display: flex;
-  list-style: none;
   gap: 20px;
+  list-style: none;
 }
 
-nav ul li a {
+.navbar-menu li a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
 }
 
-/* Responsive untuk layar kecil */
-@media screen and (max-width: 700px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
+/* Hamburger hidden on desktop */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-/* Responsive untuk HP sangat kecil */
-@media screen and (max-width: 200px) {
-  nav {
-    padding: 10px;
+/* Responsive Style */
+@media screen and (max-width: 700px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 10px 20px;
   }
 
-  nav .logo {
-    font-size: 14px;
+  .navbar-menu.active {
+    display: flex;
   }
 
-  nav ul li a {
-    font-size: 12px;
+  .hamburger {
+    display: block;
   }
 }
