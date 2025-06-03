@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects - Akhmad Dimas S</title>
   <link rel="stylesheet" href="css/css/projects.css" />
-    <link rel="stylesheet" href="css/css/navbar.css" />
+  <link rel="stylesheet" href="css/css/navbar.css" />
   <style>
     .slide {
       animation: slideText 3s linear forwards;
@@ -27,8 +27,9 @@
   </style>
 </head>
 <body>
-<!-- Navbar akan dimuat dari file terpisah -->
+  <!-- Navbar akan dimuat dari file terpisah -->
   <div id="navbar-placeholder"></div>
+
   <main class="project-section">
     <h1 class="section-title">Kategori Proyek</h1>
     <div class="project-grid">
@@ -59,13 +60,10 @@
     </div>
   </main>
 
-  <script>
-    const burger = document.getElementById('burger');
-    const nav = document.getElementById('nav-links');
-    burger.addEventListener('click', () => {
-      nav.classList.toggle('nav-active');
-    });
+  <!-- Load Navbar JS -->
+  <script src="js/navbar.js"></script>
 
+  <script>
     // Animasi teks slide saat klik
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', e => {
@@ -75,6 +73,6 @@
         text.classList.add('slide');
       });
     });
-   src="js/navbar.js"</script>
+  </script>
 </body>
 </html>
