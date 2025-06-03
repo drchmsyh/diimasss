@@ -9,11 +9,13 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Navbar */
 .navbar {
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Navbar container */
 .navbar-container {
   max-width: 1000px;
   margin: auto;
@@ -23,13 +25,16 @@ body {
   padding: 15px 20px;
 }
 
+/* Logo styling */
 .navbar-logo {
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
   color: #000;
+  display: block;
 }
 
+/* Navbar menu */
 .navbar-menu {
   display: flex;
   gap: 20px;
@@ -42,15 +47,21 @@ body {
   font-weight: 500;
 }
 
-/* Hamburger hidden on desktop */
+/* Hamburger menu icon */
 .hamburger {
   display: none;
   font-size: 24px;
   cursor: pointer;
 }
 
-/* Responsive Style */
+/* Hide logo when the menu is horizontal */
+.navbar-logo.hidden {
+  display: none;
+}
+
+/* Responsive Style for screens max-width 700px */
 @media screen and (max-width: 700px) {
+  /* Navbar menu is hidden by default */
   .navbar-menu {
     display: none;
     flex-direction: column;
@@ -59,11 +70,29 @@ body {
     padding: 10px 20px;
   }
 
+  /* Navbar menu becomes visible when active */
   .navbar-menu.active {
     display: flex;
   }
 
+  /* Hamburger icon visible on small screens */
   .hamburger {
     display: block;
+  }
+
+  /* Change menu layout to horizontal when active */
+  .navbar-menu.horizontal {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* Adjust the space between menu items in horizontal mode */
+  .navbar-menu.horizontal li {
+    margin: 0 20px;
+  }
+
+  /* Hide logo when navbar is horizontal */
+  .navbar-menu.horizontal ~ .navbar-logo {
+    display: none;
   }
 }
