@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     // Memuat navbar dari file navbar.html
     const response = await fetch("/navbar/navbar.html");
+    if (!response.ok) {
+      throw new Error("Gagal memuat navbar, status: " + response.status);
+    }
     const html = await response.text();
     const placeholder = document.getElementById("navbar-placeholder");
 
@@ -13,6 +16,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   } catch (err) {
     console.error("Gagal memuat navbar:", err);
+    // Menambahkan pesan error atau fallback
+    const placeholder = document.getElementById("navbar-placeholder");
+    if (placeholder) {
+      placeholder.innerHTML = `<p>Error memuat navbar. Coba lagi nanti.</p>`;
+    }
   }
 });
 
@@ -25,6 +33,11 @@ function initNavbarBehavior() {
   // Menandai link aktif sesuai dengan halaman yang sedang dibuka
   links.forEach(link => {
     const href = link.getAttribute("href");
+
+    // Menghapus kelas active pada semua link terlebih dahulu
+    link.classList.remove("active");
+
+    // Menambahkan kelas active pada link yang sesuai dengan halaman saat ini
     if (href === currentPath || currentPath.endsWith(href)) {
       link.classList.add("active");
     }
