@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate</title>
+  <link rel="stylesheet" href="css/certificate.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+<body>
+  <!-- Navbar will be loaded here -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Sertifikat Section -->
+  <section class="certificate-section">
+    <h2 class="section-title">Sertifikat</h2>
+
+    <!-- Sertifikat 1 -->
+    <div class="certificate-container">
+      <div class="certificate-box">
+        <div class="certificate-image">
+          <!-- Gambar Sertifikat PNG -->
+          <img src="images/certificate1.png" alt="Sertifikat 1" class="certificate-img" />
+        </div>
+
+        <div class="certificate-text">
+          <h3>Sertifikat Penghargaan 1</h3>
+          <p><strong>Nama:</strong> John Doe</p>
+          <p><strong>Tanggal Penerbitan:</strong> 12 Juni 2025</p>
+          <p><strong>Institusi:</strong> PT. Teknologi Digital</p>
+          <p><strong>Deskripsi:</strong> Sertifikat ini diberikan sebagai pengakuan atas pencapaian luar biasa dalam bidang teknologi digital.</p>
+        </div>
+      </div>
+      
+      <!-- Sertifikat 2 -->
+      <div class="certificate-box">
+        <div class="certificate-image">
+          <!-- Gambar Sertifikat PNG -->
+          <img src="images/certificate2.png" alt="Sertifikat 2" class="certificate-img" />
+        </div>
+
+        <div class="certificate-text">
+          <h3>Sertifikat Penghargaan 2</h3>
+          <p><strong>Nama:</strong> Jane Smith</p>
+          <p><strong>Tanggal Penerbitan:</strong> 25 Juni 2025</p>
+          <p><strong>Institusi:</strong> PT. Kreatif Digital</p>
+          <p><strong>Deskripsi:</strong> Sertifikat ini diberikan atas kontribusi besar dalam pengembangan software dan teknologi digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Memuat Navbar Dinamis -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  <script src="js/navbar.js"></script>
+</body>
+</html>
