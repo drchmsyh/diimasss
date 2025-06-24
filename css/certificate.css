@@ -1,0 +1,112 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* ===== Sertifikat Section ===== */
+.certificate-section {
+  padding: 2rem;
+  max-width: 700px; /* Membatasi lebar container sertifikat */
+  margin: 3rem auto;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.certificate-section .section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+/* Container untuk Sertifikat */
+.certificate-container {
+  display: grid; /* Menggunakan grid untuk mengatur 2 kolom */
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom dalam satu baris */
+  gap: 2rem; /* Jarak antar sertifikat */
+  margin-top: 1.5rem;
+  justify-items: center; /* Menjaga sertifikat tetap di tengah */
+}
+
+/* Sertifikat Box */
+.certificate-box {
+  display: flex;
+  flex-direction: column; /* Gambar dan teks ditata dalam kolom */
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px; /* Membatasi lebar setiap sertifikat */
+  text-align: center;
+}
+
+/* Gambar Sertifikat */
+.certificate-image img {
+  width: 100%;
+  height: auto;
+  max-width: 150px; /* Membatasi ukuran gambar sertifikat */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Teks Sertifikat */
+.certificate-text {
+  text-align: center;
+}
+
+.certificate-text h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.certificate-text p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.certificate-text strong {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .certificate-container {
+    grid-template-columns: 1fr; /* Sertifikat ditata vertikal pada layar kecil */
+  }
+
+  .certificate-image img {
+    max-width: 80%; /* Menyesuaikan gambar pada layar kecil */
+  }
+
+  .certificate-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate-section {
+    padding: 1.5rem;
+  }
+
+  .certificate-text h3 {
+    font-size: 1.2rem; /* Mengurangi ukuran font pada layar kecil */
+  }
+
+  .certificate-text p {
+    font-size: 0.9rem;
+  }
+}

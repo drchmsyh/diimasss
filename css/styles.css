@@ -1,0 +1,160 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* ===== Navbar Styling ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  position: relative;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Consistent shadow */
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 1.2em;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;
+  transform: translateY(-3px);
+}
+
+/* Hamburger Menu for Mobile */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ===== Responsive Styling ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Show hamburger icon */
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .nav-links.active {
+    display: flex; /* Show the navbar when active class is added */
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+
+/* Burger Menu (ikon garis tiga) */
+.burger {
+  display: none; /* Sembunyikan burger menu di desktop */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* Ketika burger menu berubah menjadi X */
+.burger.toggle div:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+
+.burger.toggle div:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.toggle div:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Sembunyikan menu navigasi pada layar kecil */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Sesuaikan dengan posisi navbar */
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.nav-active {
+    display: flex; /* Tampilkan menu saat burger menu diklik */
+  }
+
+  .burger {
+    display: flex; /* Tampilkan burger menu pada layar kecil */
+  }
+}

@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #007BFF;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  transition: all 0.3s ease;
+}
+
+.hero {
+  padding: 4rem 2rem;
+}
+
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero-image img {
+  max-width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.animated-image {
+  animation: fadeZoomIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-in-text {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    width: 200px;
+    display: none;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,163 @@
+/* Reset dan dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* General Styling */
+.skills-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Skills Container (Grid Layout with Responsive Columns) */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 kolom per baris */
+  gap: 1rem; /* Jarak antar elemen */
+  padding: 1rem;
+  justify-items: center; /* Menempatkan item di tengah */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem; /* Ukuran font skill */
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 120px; /* Lebar tetap untuk setiap item */
+  min-height: 140px; /* Memastikan semua elemen memiliki tinggi yang sama */
+}
+
+.skill-item:hover {
+  background-color: #007BFF;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  width: 50px; /* Ukuran ikon konsisten */
+  height: 50px;
+  margin-bottom: 0.5rem;
+}
+
+/* Teks di bawah ikon */
+.skill-item span {
+  font-weight: bold;
+  font-size: 0.85rem;
+  white-space: nowrap; /* Menjaga teks tetap di satu baris */
+  margin-top: 0.5rem;
+}
+
+/* Responsiveness untuk layar lebih kecil */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk layar lebih kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk layar lebih kecil */
+  }
+
+  .skill-item {
+    font-size: 0.8rem; /* Ukuran font lebih kecil */
+  }
+
+  .skill-icon {
+    width: 40px; /* Ukuran ikon lebih kecil */
+    height: 40px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  padding: 4rem 2rem;
+}
+
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero-image img {
+  max-width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Animasi */
+.animated-image {
+  animation: fadeZoomIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-in-text {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

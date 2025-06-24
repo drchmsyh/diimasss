@@ -1,0 +1,160 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* General Styling */
+.skills-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 700px; /* Limit container width to 700px */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Project Section */
+.project-section {
+  padding: 2rem;
+  max-width: 700px; /* Limit width to 700px */
+  margin: auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+/* Grid layout for project cards - 2 columns per row */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+  gap: 1rem; /* Gap between items */
+  padding: 1rem;
+  justify-items: center; /* Center the items in grid cells */
+}
+
+/* Card display */
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column;
+  cursor: pointer;
+  width: 100%; /* Card width set to 100% of its grid container */
+  max-width: 280px; /* Ensures each card is not too wide */
+  padding: 1rem;
+}
+
+/* Text in card */
+.project-card h2 {
+  font-size: 1.2rem;
+  z-index: 2;
+  position: relative;
+  color: black;
+  white-space: nowrap;
+}
+
+/* When active class is added, animation runs */
+.project-card.active h2 {
+  animation: slideText 4s linear 1;
+}
+
+/* Animation for text sliding from left to right */
+@keyframes slideText {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Hover effect keeps shadow */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Glowing effect on card */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), transparent 70%);
+  z-index: 1;
+  transform: rotate(45deg);
+  animation: glowLoop 4s linear infinite;
+}
+
+/* Background glow animation */
+@keyframes glowLoop {
+  0% {
+    transform: rotate(45deg) translate(0%, 0%);
+  }
+  50% {
+    transform: rotate(45deg) translate(-30%, -30%);
+  }
+  100% {
+    transform: rotate(45deg) translate(0%, 0%);
+  }
+}
+
+/* Responsive text */
+@media (max-width: 480px) {
+  .project-card h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Hide image if present */
+.project-card img {
+  display: none;
+}
+
+/* Responsive grid layout for small screens */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for screens smaller than 768px */
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* 1 column for very small screens */
+  }
+}

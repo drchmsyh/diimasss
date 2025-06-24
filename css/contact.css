@@ -1,0 +1,123 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: #111;
+  color: #eee;
+}
+
+/* ===== MAIN SECTION ===== */
+main {
+  padding: 2rem;
+  max-width: 700px;  /* Set container width to 700px */
+  margin: 0 auto;  /* Center the content */
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+/* ===== GRID SOSMED ===== */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns per row on desktop */
+  gap: 1.5rem;
+  max-width: 700px;  /* Ensure the grid doesn't exceed 700px */
+  margin: 0 auto;  /* Center the grid */
+}
+
+@media (max-width: 600px) {
+  .social-grid {
+    grid-template-columns: 1fr; /* 1 column per row on smaller screens */
+  }
+}
+
+.social-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-item strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.social-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.social-item a:hover {
+  color: #007BFF; /* Hover dengan warna biru */
+}
+
+/* Icon size */
+.social-item i {
+  font-size: 1.2rem;
+}
+
+/* Hover effect */
+.social-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+  max-width: 700px;  /* Ensure the footer doesn't exceed 700px */
+  margin: 3rem auto; /* Center the footer */
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+body.dark .social-item {
+  background-color: #1c1c1c;
+  color: #eee;
+}
+
+body.dark .social-item strong {
+  color: #ddd;
+}
+
+body.dark .social-item a {
+  color: #eee;
+}
+
+body.dark .social-item a:hover {
+  color: #fff;
+}
+
+body.dark footer {
+  color: #aaa;
+  border-top: 1px solid #333;
+}
