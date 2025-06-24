@@ -13,11 +13,13 @@ body {
 .navbar {
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative; /* Penting untuk z-index agar berfungsi */
+  z-index: 1000; /* Pastikan navbar selalu di atas */
 }
 
 /* Navbar container */
 .navbar-container {
-  max-width: 1000px;
+  max-width: 1000px; /* Lebar maksimum container navbar */
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -32,67 +34,100 @@ body {
   text-decoration: none;
   color: #000;
   display: block;
+  z-index: 1001; /* Pastikan logo juga di atas saat burger aktif */
 }
 
-/* Navbar menu */
+/* Navbar menu (default desktop) */
 .navbar-menu {
   display: flex;
   gap: 20px;
-  list-style: none;
+  list-style: none; /* Pastikan tidak ada bullet point jika menggunakan <ul><li> */
 }
 
-.navbar-menu li a {
+.navbar-menu a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
+  padding: 5px 10px; /* Tambahkan padding untuk area klik */
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: #007bff; /* Contoh warna hover */
 }
 
 /* Hamburger menu icon */
 .hamburger {
-  display: none;
+  display: none; /* Hidden by default on larger screens */
   font-size: 24px;
   cursor: pointer;
+  z-index: 1002; /* Pastikan hamburger icon di atas semua, termasuk menu dropdown */
+  flex-direction: column; /* Untuk efek 3 garis burger */
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
 }
 
-/* Hide logo when the menu is horizontal */
-.navbar-logo.hidden {
-  display: none;
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #000; /* Warna garis burger */
+  transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
 /* Responsive Style for screens max-width 700px */
 @media screen and (max-width: 700px) {
-  /* Navbar menu is hidden by default */
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: #fff;
-    padding: 10px 20px;
-  }
-
-  /* Navbar menu becomes visible when active */
-  .navbar-menu.active {
-    display: flex;
+  .navbar-container {
+    flex-wrap: wrap; /* Allows items to wrap for better stacking */
+    justify-content: space-between;
   }
 
   /* Hamburger icon visible on small screens */
   .hamburger {
-    display: block;
+    display: flex; /* Show hamburger on small screens */
   }
 
-  /* Change menu layout to horizontal when active */
-  .navbar-menu.horizontal {
+  /* Navbar menu is hidden by default and stacks vertically */
+  .navbar-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%; /* Takes full width */
+    background: #fff; /* Sama dengan navbar background */
+    position: absolute; /* Posisikan absolut di bawah navbar */
+    top: 55px; /* Sesuaikan dengan tinggi navbar, jika navbar-container padding 15px top/bottom, total sekitar 50px-60px*/
+    left: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Shadow untuk menu dropdown */
+    padding: 10px 0; /* Adjust padding for stacked links */
+    border-top: 1px solid #eee; /* Garis pemisah */
+    z-index: 999; /* Letakkan menu di bawah hamburger dan logo, tapi di atas konten lain */
+  }
+
+  /* Display the menu when it has the 'active' class */
+  .navbar-menu.active {
     display: flex;
-    flex-direction: row;
   }
 
-  /* Adjust the space between menu items in horizontal mode */
-  .navbar-menu.horizontal li {
-    margin: 0 20px;
+  .navbar-menu a {
+    padding: 12px 20px; /* More padding for mobile links */
+    width: 100%;
+    text-align: center; /* Center links */
+    border-bottom: 1px solid #eee; /* Garis bawah setiap item menu */
   }
 
-  /* Hide logo when navbar is horizontal */
-  .navbar-menu.horizontal ~ .navbar-logo {
-    display: none;
+  .navbar-menu a:last-child {
+    border-bottom: none; /* Hapus garis bawah pada item terakhir */
   }
+}
+
+/* CSS untuk efek burger menjadi X */
+.hamburger.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.hamburger.toggle .line2 {
+  opacity: 0;
+}
+.hamburger.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
 }

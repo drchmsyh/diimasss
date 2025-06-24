@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Akhmad Dimas S</title>
-  <link rel="stylesheet" href="css/home.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-</head>
-<body>
-  <!-- Navbar akan dimuat dari file terpisah -->
-  <div id="navbar-placeholder"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akhmad Dimas S</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+  </head>
+  <body>
+    <!-- Navbar akan dimuat dari file terpisah -->
+    <div id="navbar-placeholder"></div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-container">
-      <div class="hero-image animated-image">
-        <img src="images/profil/foto.jpg" alt="Foto Akhmad Dimas S" />
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-image animated-image">
+          <img src="images/profil/foto.jpg" alt="Foto Akhmad Dimas S" />
+        </div>
+        <div class="hero-text">
+          <h1 class="fade-up">
+            Hello, I'm<br />
+            Akhmad Dimas S
+          </h1>
+          <p class="slide-in-text">Desainer Grafis.</p>
+        </div>
       </div>
-      <div class="hero-text">
-        <h1 class="fade-up">Hello, I'm<br> Akhmad Dimas S</h1>
-        <p class="slide-in-text">Desainer Grafis.</p>
-      </div>      
-    </div>
-  </section>  
+    </section>
 
-  <!-- Script untuk load navbar -->
-  <script>
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-      });
-  </script>
-</body>
+    <!-- Script untuk load navbar -->
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+
+          // Burger menu logic (setelah navbar dimuat)
+          const burger = document.getElementById("burger");
+          const nav = document.getElementById("nav-links");
+
+          if (burger && nav) {
+            burger.addEventListener("click", () => {
+              nav.classList.toggle("active"); // Gunakan 'active' sesuai CSS terbaru
+              burger.classList.toggle("toggle"); // Tambahkan toggle untuk animasi X
+            });
+          }
+        })
+        .catch((error) => console.error("Error loading navbar:", error)); // Tangani error
+    </script>
+  </body>
 </html>

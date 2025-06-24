@@ -1,77 +1,80 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Akhmad Dimas S</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Akhmad Dimas S</title>
 
-  <!-- Font Awesome (ikon sosial media) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Font Awesome (ikon sosial media) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/contact.css" />
-</head>
-<body>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+    <!-- Navbar dimuat dari file eksternal -->
+    <div id="navbar-placeholder"></div>
 
-  <!-- Navbar dimuat dari file eksternal -->
-  <div id="navbar-placeholder"></div>
-
-  <!-- Konten Utama -->
-  <main>
-    <section class="contact">
-      <h2>Social Media</h2>
-      <div class="social-grid">
-        <div class="social-item">
-          <strong>Instagram</strong>
-          <a href="https://instagram.com/diiimss20___" target="_blank">
-            <i class="fab fa-instagram"></i> @diiimss20___
-          </a>
+    <!-- Konten Utama -->
+    <main>
+      <section class="contact">
+        <h2>Social Media</h2>
+        <div class="social-grid">
+          <div class="social-item">
+            <strong>Instagram</strong>
+            <a href="https://instagram.com/diiimss20___" target="_blank">
+              <i class="fab fa-instagram"></i> @diiimss20___
+            </a>
+          </div>
+          <div class="social-item">
+            <strong>TikTok</strong>
+            <a href="https://www.tiktok.com/@dimasss126" target="_blank">
+              <i class="fab fa-tiktok"></i> @dimasss126
+            </a>
+          </div>
+          <div class="social-item">
+            <strong>LinkedIn</strong>
+            <a
+              href="https://linkedin.com/in/akhmad-dimas-791806340"
+              target="_blank">
+              <i class="fab fa-linkedin"></i> Akhmad Dimas
+            </a>
+          </div>
+          <div class="social-item">
+            <strong>Email</strong>
+            <a href="mailto:akhmaddimas1263@gmail.com">
+              <i class="fas fa-envelope"></i> akhmaddimas1263@gmail.com
+            </a>
+          </div>
         </div>
-        <div class="social-item">
-          <strong>TikTok</strong>
-          <a href="https://www.tiktok.com/@dimasss126" target="_blank">
-            <i class="fab fa-tiktok"></i> @dimasss126
-          </a>
-        </div>
-        <div class="social-item">
-          <strong>LinkedIn</strong>
-          <a href="https://linkedin.com/in/akhmad-dimas-791806340" target="_blank">
-            <i class="fab fa-linkedin"></i> Akhmad Dimas
-          </a>
-        </div>
-        <div class="social-item">
-          <strong>Email</strong>
-          <a href="mailto:akhmaddimas1263@gmail.com">
-            <i class="fas fa-envelope"></i> akhmaddimas1263@gmail.com
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    ©2024 - Akhmad Dimas S
-  </footer>
+    <!-- Footer -->
+    <footer>©2024 - Akhmad Dimas S</footer>
 
-  <!-- Script: Navbar loader + burger menu -->
-  <script>
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
+    <!-- Script untuk load navbar -->
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
 
-        // Aktifkan burger menu setelah navbar dimuat
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav-links');
+          // Burger menu logic (setelah navbar dimuat)
+          const burger = document.getElementById("burger");
+          const nav = document.getElementById("nav-links");
 
-        if (burger && nav) {
-          burger.addEventListener('click', () => {
-            nav.classList.toggle('nav-active');
-          });
-        }
-      });
-  </script>
-</body>
+          if (burger && nav) {
+            burger.addEventListener("click", () => {
+              nav.classList.toggle("active"); // Gunakan 'active' sesuai CSS terbaru
+              burger.classList.toggle("toggle"); // Tambahkan toggle untuk animasi X
+            });
+          }
+        })
+        .catch((error) => console.error("Error loading navbar:", error)); // Tangani error
+    </script>
+  </body>
 </html>

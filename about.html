@@ -104,26 +104,28 @@
 </section>
 
   <!-- Script: Navbar dan Animasi -->
-  <script>
-    // Navbar loader
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-      });
+   
 
-    // Burger menu (pastikan elemen ada di navbar.html)
-    window.addEventListener('DOMContentLoaded', () => {
-      const burger = document.getElementById('burger');
-      const nav = document.getElementById('nav-links');
+    <!-- Script untuk load navbar -->
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
 
-      if (burger && nav) {
-        burger.addEventListener('click', () => {
-          nav.classList.toggle('nav-active');
-        });
-      }
-    });
-  </script>
+          // Burger menu logic (setelah navbar dimuat)
+          const burger = document.getElementById("burger");
+          const nav = document.getElementById("nav-links");
+
+          if (burger && nav) {
+            burger.addEventListener("click", () => {
+              nav.classList.toggle("active"); // Gunakan 'active' sesuai CSS terbaru
+              burger.classList.toggle("toggle"); // Tambahkan toggle untuk animasi X
+            });
+          }
+        })
+        .catch((error) => console.error("Error loading navbar:", error)); // Tangani error
+    </script>
 
 </body>
 </html>

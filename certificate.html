@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certificate</title>
-  <link rel="stylesheet" href="css/certificate.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-</head>
-<body>
-  <!-- Navbar will be loaded here -->
-  <div id="navbar-placeholder"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate</title>
+    <link rel="stylesheet" href="css/certificate.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+  </head>
+  <body>
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-placeholder"></div>
 
-  <!-- Sertifikat Section -->
-  <section class="certificate-section">
-    <h2 class="section-title">Sertifikat</h2>
+    <!-- Sertifikat Section -->
+    <section class="certificate-section">
+      <h2 class="section-title">Sertifikat</h2>
 
-    <!-- Sertifikat 1 -->
-    <div class="certificate-container">
-      <div class="certificate-box">
-        <div class="certificate-image">
-          <!-- Gambar Sertifikat PNG -->
-          <img src="images/certificate1.png" alt="Sertifikat 1" class="certificate-img" />
+      <!-- Sertifikat 1 -->
+      <div class="certificate-container">
+        <div class="certificate-box">
+          <div class="certificate-image">
+            <!-- Gambar Sertifikat PNG -->
+            <img
+              src="images/certificate1.png"
+              alt="Sertifikat 1"
+              class="certificate-img" />
+          </div>
+
+          <div class="certificate-text">
+            <h3>Sertifikat Penghargaan 1</h3>
+            <p><strong>Nama:</strong> John Doe</p>
+            <p><strong>Tanggal Penerbitan:</strong> 12 Juni 2025</p>
+            <p><strong>Institusi:</strong> PT. Teknologi Digital</p>
+            <p>
+              <strong>Deskripsi:</strong> Sertifikat ini diberikan sebagai
+              pengakuan atas pencapaian luar biasa dalam bidang teknologi
+              digital.
+            </p>
+          </div>
         </div>
 
-        <div class="certificate-text">
-          <h3>Sertifikat Penghargaan 1</h3>
-          <p><strong>Nama:</strong> John Doe</p>
-          <p><strong>Tanggal Penerbitan:</strong> 12 Juni 2025</p>
-          <p><strong>Institusi:</strong> PT. Teknologi Digital</p>
-          <p><strong>Deskripsi:</strong> Sertifikat ini diberikan sebagai pengakuan atas pencapaian luar biasa dalam bidang teknologi digital.</p>
+        <!-- Sertifikat 2 -->
+        <div class="certificate-box">
+          <div class="certificate-image">
+            <!-- Gambar Sertifikat PNG -->
+            <img
+              src="images/certificate2.png"
+              alt="Sertifikat 2"
+              class="certificate-img" />
+          </div>
+
+          <div class="certificate-text">
+            <h3>Sertifikat Penghargaan 2</h3>
+            <p><strong>Nama:</strong> Jane Smith</p>
+            <p><strong>Tanggal Penerbitan:</strong> 25 Juni 2025</p>
+            <p><strong>Institusi:</strong> PT. Kreatif Digital</p>
+            <p>
+              <strong>Deskripsi:</strong> Sertifikat ini diberikan atas
+              kontribusi besar dalam pengembangan software dan teknologi
+              digital.
+            </p>
+          </div>
         </div>
       </div>
-      
-      <!-- Sertifikat 2 -->
-      <div class="certificate-box">
-        <div class="certificate-image">
-          <!-- Gambar Sertifikat PNG -->
-          <img src="images/certificate2.png" alt="Sertifikat 2" class="certificate-img" />
-        </div>
+    </section>
 
-        <div class="certificate-text">
-          <h3>Sertifikat Penghargaan 2</h3>
-          <p><strong>Nama:</strong> Jane Smith</p>
-          <p><strong>Tanggal Penerbitan:</strong> 25 Juni 2025</p>
-          <p><strong>Institusi:</strong> PT. Kreatif Digital</p>
-          <p><strong>Deskripsi:</strong> Sertifikat ini diberikan atas kontribusi besar dalam pengembangan software dan teknologi digital.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Script untuk load navbar -->
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
 
-  <!-- Memuat Navbar Dinamis -->
-<!-- Memuat Navbar Dinamis -->
-<script>
-  fetch('navbar.html')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('File navbar.html tidak ditemukan');
-      }
-      return response.text();
-    })
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error loading navbar:', error);
-      document.getElementById('navbar-placeholder').innerHTML = 'Navbar tidak dapat dimuat';
-    });
-</script>
+          // Burger menu logic (setelah navbar dimuat)
+          const burger = document.getElementById("burger");
+          const nav = document.getElementById("nav-links");
 
-  <script src="js/navbar.js"></script>
-</body>
+          if (burger && nav) {
+            burger.addEventListener("click", () => {
+              nav.classList.toggle("active"); // Gunakan 'active' sesuai CSS terbaru
+              burger.classList.toggle("toggle"); // Tambahkan toggle untuk animasi X
+            });
+          }
+        })
+        .catch((error) => console.error("Error loading navbar:", error)); // Tangani error
+    </script>
+  </body>
 </html>
