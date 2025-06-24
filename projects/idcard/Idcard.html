@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flyer Designs</title>
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+  <div class="back-wrapper">
+    <a href="index.html" class="back-button fancy">← Kembali</a>
+  </div>
+
+  <section id="projects">
+    <h2>Semua Desain Id Card</h2>
+    <div class="project-gallery">
+      <div class="project-card">
+        <img src="images/idcard/idcard (1).jpg" alt="idcard 1" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Id Card Panitia HUT RI</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/idcard/idcard2.jpg" alt="idcard 2" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Id Card Panitia Maulid Nabi Muhammad SAW</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/idcard/idcard3.jpg" alt="idcard 3" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Id Card Panitia Pemilihan Ketua Osis</Kbd></h3>
+      </div>
+      <div class="project-card">
+        <img src="images/idcard/idcard4.jpg" alt="idcard 4" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Id Card Panitia Wisuda</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/idcard/idcard5.jpg" alt="idcard 5" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Id Card Panitia HUT PGRI</h3>
+      </div>
+    </div>
+  </section>
+  <!-- Modal Preview -->
+  <div id="modal" class="modal" onclick="hideModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <script>
+    function showModal(el) {
+      document.getElementById("modal").style.display = "flex";
+      document.getElementById("modal-img").src = el.src;
+    }
+    function hideModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Desain Banner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="back-wrapper">
+    <a href="index.html" class="back-button fancy">← Kembali</a>
+  </div>
+
+  <section id="projects">
+    <h2>Semua Desain Banner</h2>
+    <div class="project-gallery">
+      <div class="project-card">
+        <img src="images/banner/Banner1.png" alt="Banner 1" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Banner WIsuda</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/banner/Banner2.png" alt="Banner 2" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Banner Kemerdekaan Republik Indonesia</Inp></h3>
+      </div>
+      <div class="project-card">
+        <img src="images/banner/Banner3.png" alt="Banner 3" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Banner Sholawatan</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/banner/banner4.jpg" alt="Banner 4" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Benner Pemilihan Ketua Osis</h3>
+      </div>
+      <div class="project-card">
+        <img src="images/banner/banner5.jpg" alt="Banner 5" onclick="showModal(this)">
+        <h3 style="color: #ffffff;">Banner Kemerdekaan Republik Indonesia</h3>
+      </div>
+    </div>
+  </section>
+ <!-- Modal Preview -->
+ <div id="modal" class="modal" onclick="hideModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <script>
+    function showModal(el) {
+      document.getElementById("modal").style.display = "flex";
+      document.getElementById("modal-img").src = el.src;
+    }
+    function hideModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
