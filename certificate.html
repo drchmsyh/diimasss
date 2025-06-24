@@ -51,14 +51,23 @@
   </section>
 
   <!-- Memuat Navbar Dinamis -->
-  <script>
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading navbar:', error));
-  </script>
+<!-- Memuat Navbar Dinamis -->
+<script>
+  fetch('navbar.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('File navbar.html tidak ditemukan');
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error loading navbar:', error);
+      document.getElementById('navbar-placeholder').innerHTML = 'Navbar tidak dapat dimuat';
+    });
+</script>
 
   <script src="js/navbar.js"></script>
 </body>
